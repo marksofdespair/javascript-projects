@@ -13,3 +13,16 @@ c) Print the new array to confirm your work.
 */
 
 let arr = ['Elocution', 21, 'Clean teeth', 100];
+
+const transformArray = (array) => {
+  return array.map((element) => {
+    if (typeof element === 'number') {
+      return element * 3;
+    } else if (typeof element === 'string') {
+      return 'ARRR!';
+    }
+  });
+};
+
+const transformedArr = transformArray(arr);
+console.log(transformedArr);
