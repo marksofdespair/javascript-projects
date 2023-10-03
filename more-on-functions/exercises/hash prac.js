@@ -49,4 +49,33 @@ function makeLine(size) {
     return triangle.slice(0, -1);
   }
 
-  makeIsoscelesTriangle();
+  makeIsoscelesTriangle(); 
+
+  //wait forgot the diamon function
+
+  function makeDiamond(height) {
+    if (height % 2 === 0) {
+      return "Height must be an odd number to create a diamond.";
+    }
+  
+    let diamond = "";
+  
+    for (let i = 1; i <= height; i += 2) {
+      let spaces = " ".repeat((height - i) / 2);
+      let hashes = "#".repeat(i);
+      diamond += spaces + hashes + spaces + "\n";
+    }
+  
+    for (let i = height - 2; i >= 1; i -= 2) {
+      let spaces = " ".repeat((height - i) / 2);
+      let hashes = "#".repeat(i);
+      diamond += spaces + hashes + spaces + "\n";
+    }
+  
+    return diamond;
+  }
+  
+  // Testing the function with a height of 7!
+  let diamond_7 = makeDiamond(7);
+  console.log(diamond_7);
+  
