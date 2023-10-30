@@ -53,5 +53,64 @@ console.log("Hold status: " + holdStatus(cargoHold));
 	
 //b). Call your anonymous fuel and cargo functions from within irs.
 
-//c). Use a template literal to return, "Raided _____ kg of fuel from the tanks, and stole ____ and ____ from the cargo hold."
+//c). Use a template literal to return, "Raided _____ kg of fuel from the tanks, and stole ____ and ____ from the cargo hold." */
 
+const siphonFuel = function(fuelLevel) {
+  if (fuelLevel > 100000) {
+    return fuelLevel - 100000;
+  } else if (fuelLevel > 50000) {
+    return fuelLevel - 50000;
+  } else {
+    return 0; 
+  }
+};
+
+const swipeCargo = function(cargoHold) {
+  if (cargoHold.length >= 2) {
+    const stolenItems = [cargoHold[0], cargoHold[1]];
+
+    cargoHold[0] = 'empty space';
+    cargoHold[1] = 'empty space';
+
+    return stolenItems;
+  } else {
+    return [];
+  }
+};
+
+const stolenItems = swipeCargo(cargoHold);
+
+console.log("Stolen items: " + stolenItems.join(', '));
+console.log("Updated Cargo Hold: " + cargoHold.join(', '));
+
+function irs(fuelLevel, cargoHold) {
+  const siphonFuel = function(fuelLevel) {
+    if (fuelLevel > 100000) {
+      return fuelLevel - 100000;
+    } else if (fuelLevel > 50000) {
+      return fuelLevel - 50000;
+    } else {
+      return 0;
+    }
+  };
+
+  const swipeCargo = function(cargoHold) {
+    if (cargoHold.length >= 2) {
+      const stolenItems = [cargoHold[0], cargoHold[1]];
+      cargoHold[0] = 'empty space';
+      cargoHold[1] = 'empty space';
+      return stolenItems;
+    } else {
+      return [];
+    }
+  };
+
+  const fuelToSiphon = siphonFuel(fuelLevel);
+  const stolenItems = swipeCargo(cargoHold);
+
+  return `Raided ${fuelToSiphon} kg of fuel from the tanks, and stole ${stolenItems.join(' and ')} from the cargo hold.`;
+}
+
+const receipt = irs(fuelLevel, cargoHold);
+
+console.log(receipt);
