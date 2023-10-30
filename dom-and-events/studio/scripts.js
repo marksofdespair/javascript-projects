@@ -15,6 +15,24 @@ window.addEventListener('load', function() {
     const downButton = document.getElementById("down");
     const rocket = document.getElementById("rocket");
 
+    // Attach an event listener to the "Take off" button
+takeoffButton.addEventListener('click', function() {
+    // Use window.confirm to get user confirmation
+    const isReadyForTakeoff = window.confirm("Confirm that the shuttle is ready for takeoff.");
+
+    if (isReadyForTakeoff) {
+        // Update flight status
+        flightStatus.innerHTML = "Shuttle in flight";
+
+        // Change the background color to blue
+        shuttleBackground.style.backgroundColor = "blue";
+
+        // Increase shuttle height by 10,000 miles
+        const currentHeight = parseInt(spaceShuttleHeight.innerText, 10);
+        spaceShuttleHeight.innerText = (currentHeight + 10000) + " miles";
+    }
+});
+
     // Attach an event listener to the "Land" button
     landButton.addEventListener('click', function() {
         window.alert("The shuttle is landing. Landing gear engaged.");
