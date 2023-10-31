@@ -3,7 +3,6 @@
 
 window.addEventListener('load', function() {
     // Wait for all elements to load before attaching event handlers
-
     // Get references to the necessary elements
     const flightStatus = document.getElementById("flightStatus");
     const shuttleBackground = document.getElementById("shuttleBackground");
@@ -65,13 +64,15 @@ window.addEventListener('load', function() {
     });
 
     leftButton.addEventListener('click', function() {
+        console.log("Left button clicked"); // Add this line
         moveRocket(-10, 0);
     });
-
+    
     rightButton.addEventListener('click', function() {
+        console.log("Right button clicked"); // Add this line
         moveRocket(10, 0);
     });
-
+  
 
     function moveRocket(dx, dy) {
         // Calculate new position for the rocket image
