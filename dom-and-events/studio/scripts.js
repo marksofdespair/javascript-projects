@@ -3,7 +3,7 @@
 
 window.addEventListener('load', function() {
     // Wait for all elements to load before attaching event handlers
-    // Get references to the necessary elements
+    // This gets references to the necessary elements
     const flightStatus = document.getElementById("flightStatus");
     const shuttleBackground = document.getElementById("shuttleBackground");
     const spaceShuttleHeight = document.getElementById("spaceShuttleHeight");
@@ -53,24 +53,30 @@ window.addEventListener('load', function() {
     });
 
     // Attach event listeners to directional buttons
+    //upButton
     upButton.addEventListener('click', function() {
         moveRocket(0, -10);
         updateShuttleHeight(10000);
     });
 
+    //downButton
     downButton.addEventListener('click', function() {
         moveRocket(0, 10);
         updateShuttleHeight(-10000);
     });
 
+    //leftButton
     leftButton.addEventListener('click', function() {
-        console.log("Left button clicked"); // Add this line
+        console.log("Left button clicked");
         moveRocket(-10, 0);
+        //x is ACROSS, -
     });
     
+    //rightButton
     rightButton.addEventListener('click', function() {
-        console.log("Right button clicked"); // Add this line
+        console.log("Right button clicked"); 
         moveRocket(10, 0);
+        //x is ACROSS, +
     });
   
 
@@ -81,6 +87,7 @@ window.addEventListener('load', function() {
         const rocketY = parseInt(rocketStyle.top, 10) + dy;
 
         // Updates the rocket's position
+        // Using X/Y to differentiate, (X, Y)
         rocket.style.left = rocketX + "px";
         rocket.style.top = rocketY + "px";
     }
