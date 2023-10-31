@@ -68,14 +68,14 @@ window.addEventListener('load', function() {
     //leftButton
     leftButton.addEventListener('click', function() {
         console.log("Left button clicked");
-        moveRocket(-50, 0);
+        moveRocket(-10, 0);
         //x is ACROSS, -
     });
     
     //rightButton
     rightButton.addEventListener('click', function() {
         console.log("Right button clicked"); 
-        moveRocket(50, 0);
+        moveRocket(10, 0);
         //x is ACROSS, +
     });
   
