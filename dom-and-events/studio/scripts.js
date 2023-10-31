@@ -16,9 +16,9 @@ window.addEventListener('load', function() {
     const leftButton = document.getElementById("left");
     const rightButton = document.getElementById("right");
 
-    // Attach an event listener to the "Take off" button
+    // Attaches an event listener to the "Take off" button
     takeoffButton.addEventListener('click', function() {
-    // Use window.confirm to get user confirmation
+    // Uses window.confirm to get user confirmation
     const isReadyForTakeoff = window.confirm("Confirm that the shuttle is ready for takeoff.");
 
     if (isReadyForTakeoff) {
@@ -34,7 +34,7 @@ window.addEventListener('load', function() {
     }
 });
 
-    // Attach an event listener to the "Land" button
+    // Attached an event listener to the "Land" button
     landButton.addEventListener('click', function() {
         window.alert("The shuttle is landing. Landing gear engaged.");
         flightStatus.innerHTML = "The shuttle has landed";
@@ -42,7 +42,7 @@ window.addEventListener('load', function() {
         spaceShuttleHeight.innerText = "0 miles";
     });
 
-    // Attach an event listener to the "Abort Mission" button
+    // Attached an event listener to the "Abort Mission" button
     abortButton.addEventListener('click', function() {
         const confirmAbort = window.confirm("Confirm that you want to abort the mission.");
         if (confirmAbort) {
@@ -75,12 +75,12 @@ window.addEventListener('load', function() {
   
 
     function moveRocket(dx, dy) {
-        // Calculate new position for the rocket image
+        // Calculates new position for the rocket image
         const rocketStyle = getComputedStyle(rocket);
         const rocketX = parseInt(rocketStyle.left, 10) + dx;
         const rocketY = parseInt(rocketStyle.top, 10) + dy;
 
-        // Update the rocket's position
+        // Updates the rocket's position
         rocket.style.left = rocketX + "px";
         rocket.style.top = rocketY + "px";
     }
