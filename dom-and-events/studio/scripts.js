@@ -14,20 +14,22 @@ window.addEventListener('load', function() {
     const upButton = document.getElementById("up");
     const downButton = document.getElementById("down");
     const rocket = document.getElementById("rocket");
+    const leftButton = document.getElementById("left");
+    const rightButton = document.getElementById("right");
 
     // Attach an event listener to the "Take off" button
-takeoffButton.addEventListener('click', function() {
+    takeoffButton.addEventListener('click', function() {
     // Use window.confirm to get user confirmation
     const isReadyForTakeoff = window.confirm("Confirm that the shuttle is ready for takeoff.");
 
     if (isReadyForTakeoff) {
-        // Update flight status
+        // Updates flight status
         flightStatus.innerHTML = "Shuttle in flight";
 
-        // Change the background color to blue
+        // Changes the background color to blue
         shuttleBackground.style.backgroundColor = "blue";
 
-        // Increase shuttle height by 10,000 miles
+        // Increases shuttle height by 10,000 miles
         const currentHeight = parseInt(spaceShuttleHeight.innerText, 10);
         spaceShuttleHeight.innerText = (currentHeight + 10000) + " miles";
     }
@@ -62,7 +64,14 @@ takeoffButton.addEventListener('click', function() {
         updateShuttleHeight(-10000);
     });
 
-    // Add functionality for other directional buttons (Right and Left) if needed
+    leftButton.addEventListener('click', function() {
+        moveRocket(-10, 0);
+    });
+
+    rightButton.addEventListener('click', function() {
+        moveRocket(10, 0);
+    });
+
 
     function moveRocket(dx, dy) {
         // Calculate new position for the rocket image
